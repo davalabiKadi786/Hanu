@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "HanuAi: Analyze Dataset",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "src.pipeline", "--input", "data/raw/Dataset.csv", "--output-dir", "outputs", "--clusters", "6"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "HanuAi: Run Dashboard",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "streamlit", "run", "app.py"],
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}

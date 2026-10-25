@@ -1,0 +1,8 @@
+pandas==3.1.0
+scikit-learn==1.9.1
+matplotlib==3.11.2
+streamlit==1.66.1
+vaderSentiment==3.3.2
+selenium==4.51.0
+jupyterlab==4.6.4
+
