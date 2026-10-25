@@ -1,3 +1,52 @@
+# HanuAi - Text Mining & Exploration Dashboard
+
+A Streamlit-based web dashboard designed for data quality exploration, text enrichment, and text mining analysis.
+
+## 🚀 Quick Start / Local Installation
+
+Follow these steps to set up the environment and run the application locally:
+
+### 1. Clone the Repository
+bash
+git clone <YOUR_GITHUB_REPOSITORY_URL_HERE>
+cd HanuAi
+
+
+### 2. Set Up a Virtual Environment
+It is highly recommended to isolate your dependencies using a virtual environment:
+bash
+# Create the environment
+python -m venv .venv
+
+# Activate it (Windows)
+.venv\Scripts\activate
+
+# Activate it (Mac/Linux)
+source .venv/bin/activate
+
+
+### 3. Install Dependencies
+bash
+pip install --upgrade pip
+pip install -r requirements.txt
+
+
+### 4. Run the Dashboard
+Launch the interface locally via the Streamlit CLI:
+bash
+streamlit run app.py
+
+The dashboard will automatically open in your web browser at http://localhost:8501.
+
+---
+
+## 📂 Project Structure Overview
+* app.py: Main execution entry point for the Streamlit interface.
+* src/: Core source folder containing modular text mining utilities (data_quality, enrich_text, etc.).
+* data/raw/: Directory holding raw datasets for analysis.
+* outputs/: Destination folder for processed/exported results.
+*
+
 # HanuAi ML Assessment
 
 Local Python project for the two tasks in the HanuAi ML Assessment PDF:

@@ -6,8 +6,46 @@ import streamlit as st
 
 from src.text_mining import data_quality, enrich_text, parse_list_cell
 
-st.set_page_config(page_title="HanuAi ML Assessment", layout="wide")
-st.title("HanuAi ML Assessment")
+st.set_page_config(page_title="HanuAi Vehicle Insights", layout="wide")
+st.markdown(
+    """
+    <style>
+    :root { color-scheme: dark; }
+    [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+        background: #0b0f19;
+        color: #ffffff;
+    }
+    [data-testid="stSidebar"] { background: #111827; }
+    [data-testid="stMarkdownContainer"], [data-testid="stMetricLabel"],
+    [data-testid="stCaptionContainer"] { color: #9ca3af; }
+    h1, h2, h3, label, p, span { color: #ffffff; }
+    [data-testid="stMetric"] {
+        background: #111827;
+        border: 1px solid #273244;
+        border-top: 3px solid #ff7a00;
+        border-radius: 10px;
+        padding: 14px 16px;
+    }
+    [data-testid="stMetricValue"] { color: #ff7a00; }
+    [data-testid="stTabs"] button[aria-selected="true"] {
+        color: #ff7a00;
+        border-bottom-color: #ff7a00;
+    }
+    [data-testid="stDownloadButton"] button, .stButton button {
+        background: #ff7a00;
+        color: #0b0f19;
+        border: 0;
+        font-weight: 700;
+    }
+    [data-testid="stDataFrame"], [data-testid="stTable"] {
+        border: 1px solid #273244;
+        border-radius: 8px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+st.title("HanuAi Vehicle Insights")
 st.caption("Vehicle complaint exploration, entity tagging, and issue clustering")
 
 uploaded = st.sidebar.file_uploader("Choose a complaint CSV", type=["csv"])
@@ -65,4 +103,5 @@ with tab_cluster:
     selected = st.selectbox("Inspect a cluster", sorted(enriched.cluster.unique().tolist()))
     cols = [x for x in ["Event id", "MODEL", "CUSTOMER_VERBATIM", "CAUSAL_VERBATIM", "issue_category"] if x in enriched]
     st.dataframe(enriched.loc[enriched.cluster == selected, cols].head(50), use_container_width=True)
+
 
